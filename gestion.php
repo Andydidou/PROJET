@@ -13,12 +13,12 @@
 				<header id="header" class="alt">
 					<nav id="nav">
 						<ul>
-							<li><a href="index.html">Accueil</a></li>
-							<li><a href="centre.html">Les centres</a></li>
+							<li><a href="index.php">Accueil</a></li>
+							<li><a href="centre.php">Les centres</a></li>
 							<li><a href="#" class="icon solid fa-angle-down">Espace personnel</a>
 								<ul>
-									<li><a href="information.html">Informations</a></li>
-									<li><a href="gestion.html">Gestion des rendez-vous</a></li>
+									<li><a href="information.php">Informations</a></li>
+									<li><a href="gestion.php">Gestion des rendez-vous</a></li>
 								</ul>
 							</li>
 						</ul>
