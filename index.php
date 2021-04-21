@@ -1,79 +1,45 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Vaccination - Covid-19</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="landing is-preload">
-		<div id="page-wrapper">
+<?php
+session_start();
+//HEADER
+include("vue/entete.php");
 
-			<!-- Header -->
-				<header id="header" class="alt">
-					<nav id="nav">
-						<ul>
-							<li><a href="index.php">Accueil</a></li>
-							<li><a href="centre.php">Les centres</a></li>
+//CONTROLEUR//
+if(isset($_GET['ctl']))
+	{
+		$control = $_GET['ctl'];
+		switch($control)
+		{
+			case "centre":{
+				include 'vue/centre.php';
+				break;}
+			case "accueil":{
+					include 'vue/accueil.php';
+					break;}
+			case "info":{
+					include 'vue/information.php';
+					break;}
+			case "gestion":{
+					include 'vue/gestion.php';
+					break;}
+			case "connexion":{
+					include 'vue/connexion.php';
+					break;}
+			case "inscription":{
+					include 'vue/inscription.php';
+					break;}
+			case "login":{
+					include 'controleur/ctlLogin.php';
+					break;}
+		}
+	}
 
-							<!--afficher que si connecter-->
-							<li><a href="#" class="icon solid fa-angle-down">Espace personnel</a>
-								<ul>
-									<li><a href="information.php">Informations</a></li>
-									<li><a href="gestion.php">Gestion des rendez-vous</a></li>
-								</ul>
-							</li>
-							<!---->	
-						
-							
-							<!--enlever si connecter-->
-							<li><a href="#" class="button">Connexion</a></li>
-							<!---->
-						</ul>
-					</nav>
-				</header>
+	if (!isset($_SESSION['login'])) {
+		if (!isset($_GET['reg'])) {
+			include("vue/connexion.php");
+		}else{
+			include("vue/inscription.php");
+		}
+	}
 
-			<!-- Banner -->
-				<section id="banner">
-					<h2>Covid-19</h2>
-					<p>Prenez rapidement un rendez-vous dans un centre de vaccination près de chez vous !</p>
-					<ul class="actions special">
-						<li><a href="#" class="button primary">S'inscrire</a></li>
-					</ul>
-				</section>
-
-			<!-- Main -->
-				<section id="main" class="container">
-
-					<section class="box special">
-						<header class="major">
-							<h2>Bienvenue sur notre site</h2>
-							<p>Notre but est de vous permettre de prendre un rendez-vous rapidement <br/>
-							   pour vous faire vacciner contre le Covid-19.<br>
-							   Si vous souhaiter réservé un créneau, veuillez vous connecter.<br>
-						       Si vous n'avez pas de compte créer en un ici :<br>
-							<a>Créer un compte</a></p>
-							
-						</header>
-					</section>
-
-			<!-- Footer -->
-				<footer id="footer">
-					<ul class="copyright">
-						<li>&copy; Titou. Tout droit réservés.</li>
-					</ul>
-				</footer>
-
-		</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
-</html>
+include("vue/pied.php");
+?>
